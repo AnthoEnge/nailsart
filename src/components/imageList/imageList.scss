@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+.imageList {
+    width: 100%;
+    min-height: 620px;
+    padding: 40px 0;
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        img {
+            width: 400px;
+            height: 100%;
+            box-shadow: 0 0 10px rgb(65, 64, 64);
+        }
+    }
+    .oneImage {
+        border-radius: 10px 0 0 10px;
+    }
+    .twoImage {
+        border-radius: 10px 0px 0px 10px;
+    }
+    .threeImage {
+        border-radius: 10px;
+    }
+    h2 {
+        position: absolute;
+        text-align: center;
+        font-size: 115px;
+        color: white;
+        text-shadow: 0 0 8px rgb(0, 0, 0) ,0 0 30px black ,0 0 50px black;
+        // color: rgba(151, 34, 56 , $alpha : 0.9); 
+        // rgba($color: #ffbdbd, $alpha: 0.8);
+        // text-shadow: 2px 2px rgba(black, $alpha: 0.8);
+        font-family: 'Great Vibes', cursive;
+        pointer-events: none;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 500px) {
+    img {
+        border-radius: 2px !important;
+    }
+}

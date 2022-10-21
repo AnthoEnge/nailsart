@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import Accueil from "./pages/Accueil";
+import Galerie from "./pages/Galerie";
+import Reservation from "./pages/Reservation";
+import Tarifs from "./pages/Tarifs";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./styles/App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route activeClassName="active" path="/accueil" element={<Accueil />} />
+        <Route activeClassName="active" path="/galerie" element={<Galerie />} />
+        <Route
+          activeClassName="active"
+          path="/reservation"
+          element={<Reservation />}
+        />
+        <Route activeClassName="active" path="/tarifs" element={<Tarifs />} />
+        {/* Path =* fonctionne si il n'a aucune page déclarer au-dessus */}
+        <Route path="*" element={<Accueil />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
