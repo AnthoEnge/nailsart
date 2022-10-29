@@ -1,3 +1,4 @@
+import React from "react";
 import Accueil from "./pages/Accueil";
 import Galerie from "./pages/Galerie";
 import Reservation from "./pages/Reservation";
