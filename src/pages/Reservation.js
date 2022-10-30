@@ -5,7 +5,7 @@ import DemoApp from "../components/calendar/DemoApp.tsx";
 
 const Reservation = () => {
   return (
-    <div>
+    <div className="viewHeight">
       <NavBar />
       <DemoApp />
       <Footer />

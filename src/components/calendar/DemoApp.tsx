@@ -48,8 +48,12 @@ function DemoApp() {
     );
   };
   const handleEventClick = (clickInfo: EventClickArg) => {
-    alert(`Event HandleEventClick ${clickInfo.event.title}`);
-    console.log(clickInfo.event.id);
+    let idClick = clickInfo.event._instance.defId;
+    if (idClick) {
+      clickInfo.event.remove(idClick);
+    } else {
+      console.log("Rien a supprimer");
+    }
   };
   const handleDateSelect = (selectInfo: DateSelectArg) => {
     let title = "Non disponible"; //prompt("Entrer votre titre");
@@ -68,92 +72,94 @@ function DemoApp() {
     }
   };
   return (
-    <>
-      <FullCalendar
-        slotDuration={"01:00:00"}
-        slotMinTime={"09:00:00"}
-        slotMaxTime={"19:00:00"}
-        slotLabelInterval={"01:00:00"}
-        slotLabelFormat={{
-          hour: "numeric",
-          minute: "numeric",
-          omitZeroMinute: false,
-          meridiem: "short",
-        }}
-        scrollTime={"15:00:00"}
-        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-        customButtons={{
-          btn: {
-            text: "Test",
-            click(ev: MouseEvent, element: HTMLElement) {
-              alert(setInitialEvents);
+    <div className="content">
+      <>
+        <FullCalendar
+          slotDuration={"01:00:00"}
+          slotMinTime={"09:00:00"}
+          slotMaxTime={"19:00:00"}
+          slotLabelInterval={"01:00:00"}
+          slotLabelFormat={{
+            hour: "numeric",
+            minute: "numeric",
+            omitZeroMinute: false,
+            meridiem: "short",
+          }}
+          scrollTime={"15:00:00"}
+          plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+          customButtons={{
+            btn: {
+              text: "Test",
+              click(ev: MouseEvent, element: HTMLElement) {
+                alert(setInitialEvents);
+              },
             },
-          },
-        }}
-        // dateClick={(e: DateClickArg) => {
-        //   console.log("dateclick", e);
-        // }}
-        select={handleDateSelect}
-        eventClick={handleEventClick}
-        eventContent={renderEventContent}
-        initialEvents={initialEvents}
-        initialView="timeGrid" //"timeGridWeek"
-        selectable={true}
-        editable={true}
-        eventDragStart={(e: EventDragStartArg) => {
-          console.log("Event Drag Start");
-        }}
-        eventDragStop={(e: EventDragStopArg) => {
-          console.log("Event Drag Stop");
-        }}
-        eventBackgroundColor={"rgba(151, 34, 56, 0.9)"}
-        eventBorderColor={"rgba(151, 34, 56, 0.9)"}
-        eventRemove={(e: EventRemoveArg) => {
-          console.log("Event remove");
-        }}
-        eventsSet={handleEvents}
-        // dayHeaderFormat={{
-        //   day: '2-digit',
-        //   week: "short",
-        //   month: "numeric",
-        // }}
-        eventAdd={(e: EventAddArg) => {
-          console.log("EventAdd", e);
-        }}
-        eventChange={(e: EventChangeArg) => {
-          console.log("Event Change", e);
-        }}
-        dayMaxEvents={true}
-        weekends={true}
-        hiddenDays={[0]}
-        locales={allLocales}
-        locale={"fr"}
-        buttonText={{
-          day: "Jours",
-          prev: "Retour",
-          next: "Suivant",
-          nextYear: "",
-          prevYear: "",
-          month: "Mois",
-          today: "Aujourd'hui",
-          week: "Semaine",
-          timeGrid: "Semaine",
-        }}
-        headerToolbar={{
-          left: "prev,next today", //btn
-          center: "title",
-          right: "timeGrid,timeGridDay", //dayGridMonth
-        }}
-        firstDay={1}
-        visibleRange={(currentDate) => {
-          var startDate = new Date(currentDate.valueOf());
-          var endDate = new Date(currentDate.valueOf());
-          startDate.setDate(startDate.getDate());
-          endDate.setDate(endDate.getDate() + 5);
-          return { start: startDate, end: endDate };
-        }}
-      />
-    </>
+          }}
+          // dateClick={(e: DateClickArg) => {
+          //   console.log("dateclick", e);
+          // }}
+          select={handleDateSelect}
+          eventClick={handleEventClick}
+          eventContent={renderEventContent}
+          initialEvents={initialEvents}
+          initialView="timeGrid" //"timeGridWeek"
+          selectable={true}
+          editable={true}
+          eventDragStart={(e: EventDragStartArg) => {
+            console.log("Event Drag Start");
+          }}
+          eventDragStop={(e: EventDragStopArg) => {
+            console.log("Event Drag Stop");
+          }}
+          eventBackgroundColor={"rgba(151, 34, 56, 0.9)"}
+          eventBorderColor={"rgba(151, 34, 56, 0.9)"}
+          eventRemove={(e: EventRemoveArg) => {
+            console.log("Event remove", e);
+          }}
+          eventsSet={handleEvents}
+          // dayHeaderFormat={{
+          //   day: '2-digit',
+          //   week: "short",
+          //   month: "numeric",
+          // }}
+          eventAdd={(e: EventAddArg) => {
+            console.log("EventAdd", e);
+          }}
+          eventChange={(e: EventChangeArg) => {
+            console.log("Event Change", e);
+          }}
+          dayMaxEvents={true}
+          weekends={true}
+          hiddenDays={[0]}
+          locales={allLocales}
+          locale={"fr"}
+          buttonText={{
+            day: "Jours",
+            prev: "Retour",
+            next: "Suivant",
+            nextYear: "",
+            prevYear: "",
+            month: "Mois",
+            today: "Aujourd'hui",
+            week: "Semaine",
+            timeGrid: "Semaine",
+          }}
+          headerToolbar={{
+            left: "prev,next today", //btn
+            center: "title",
+            right: "timeGrid,timeGridDay", //dayGridMonth
+          }}
+          firstDay={1}
+          visibleRange={(currentDate) => {
+            var startDate = new Date(currentDate.valueOf());
+            var endDate = new Date(currentDate.valueOf());
+            startDate.setDate(startDate.getDate());
+            endDate.setDate(endDate.getDate() + 5);
+            return { start: startDate, end: endDate };
+          }}
+        />
+      </>
+    </div>
   );
 }
 
