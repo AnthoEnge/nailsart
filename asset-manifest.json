@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/nailsart/static/css/main.bb51433e.css",
-    "main.js": "/nailsart/static/js/main.9f010976.js",
+    "main.css": "/nailsart/static/css/main.d8fdbfc1.css",
+    "main.js": "/nailsart/static/js/main.57133f23.js",
     "static/media/logoAmelie.png": "/nailsart/static/media/logoAmelie.086a5c601049ffe9209d.png",
     "index.html": "/nailsart/index.html",
-    "main.bb51433e.css.map": "/nailsart/static/css/main.bb51433e.css.map",
-    "main.9f010976.js.map": "/nailsart/static/js/main.9f010976.js.map"
+    "main.d8fdbfc1.css.map": "/nailsart/static/css/main.d8fdbfc1.css.map",
+    "main.57133f23.js.map": "/nailsart/static/js/main.57133f23.js.map"
   },
   "entrypoints": [
-    "static/css/main.bb51433e.css",
-    "static/js/main.9f010976.js"
+    "static/css/main.d8fdbfc1.css",
+    "static/js/main.57133f23.js"
   ]
 }
