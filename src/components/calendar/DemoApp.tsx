@@ -85,7 +85,7 @@ function DemoApp() {
             omitZeroMinute: false,
             meridiem: "short",
           }}
-          scrollTime={"15:00:00"}
+          scrollTime={"9:00:00"}
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           customButtons={{
             btn: {
@@ -104,7 +104,7 @@ function DemoApp() {
           initialEvents={initialEvents}
           initialView="timeGrid" //"timeGridWeek"
           selectable={true}
-          editable={true}
+          editable={false}
           eventDragStart={(e: EventDragStartArg) => {
             console.log("Event Drag Start");
           }}
@@ -118,7 +118,7 @@ function DemoApp() {
           }}
           eventsSet={handleEvents}
           // dayHeaderFormat={{
-          //   day: '2-digit',
+          //   day: "2-digit",
           //   week: "short",
           //   month: "numeric",
           // }}
@@ -129,8 +129,8 @@ function DemoApp() {
             console.log("Event Change", e);
           }}
           dayMaxEvents={true}
-          weekends={true}
-          hiddenDays={[0]}
+          weekends={false}
+          // hiddenDays={[0]}
           locales={allLocales}
           locale={"fr"}
           buttonText={{
