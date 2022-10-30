@@ -5,7 +5,7 @@ import Footer from "../components/footer/Footer";
 
 const Galerie = () => {
   return (
-    <div>
+    <div className="viewHeight">
       <NavBar />
       <GalerieContent />
       <Footer />

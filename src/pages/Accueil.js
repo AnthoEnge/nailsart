@@ -5,7 +5,7 @@ import NavBar from "../components/navBar/NavBar";
 
 const Accueil = () => {
   return (
-    <div>
+    <div className="viewHeight">
       <NavBar />
       <ImageList />
       <Footer />

@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 .imageList {
     width: 100%;
-    height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,18 +42,19 @@
 
 @media (min-width: 0px) and (max-width: 500px) {
     img {
-        border-radius: 0px !important;
-        height: 200px !important;
-        width: auto !important;
+        border-radius: 0 !important;
+        border: none !important;
     }
-    .oneImage {
+     .threeImage {
         width: 100% !important;
+        box-shadow: 0 0px 80px rgb(19, 19, 19) !important;
     }
-    .twoImage,.threeImage {
+    .twoImage,.oneImage {
         width: 50% !important;
-    }
+        display: none;
+    }        
 
     h2 {
-        font-size: 38px !important;
+        font-size: 46px !important;
     }
 }
